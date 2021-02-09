@@ -12,6 +12,8 @@ esphome:
   arduino_version: 2.5.1
   board: esp8285
 
+###############################################################################################################################################
+
 # Enable logging
 logger:
   baud_rate: 0
@@ -23,8 +25,8 @@ api:
 ota:
 
 wifi:
-  ssid: "siec"
-  password: "haslo"
+  ssid: "sss"
+  password: "sss123456"
   fast_connect: on
   
   # Optional manual IP
@@ -32,6 +34,8 @@ wifi:
     static_ip: 192.168.1.106
     gateway: 192.168.1.1
     subnet: 255.255.255.0
+
+###############################################################################################################################################
 
 # see: https://esphome.io/components/time.html
 time:
@@ -41,6 +45,8 @@ time:
 # Enable Web server
 web_server:
   port: 80
+  
+###############################################################################################################################################
   
 sensor:
   # Power sensor
@@ -60,10 +66,12 @@ sensor:
       name: "${devicename} - Amper"
       unit_of_measurement: A
       accuracy_decimals: 3
+      icon: mdi:current-ac
     # Voltage sensor
     voltage:
       name: "${devicename} - Volt"
       unit_of_measurement: V
+      icon: mdi:resistor
       accuracy_decimals: 1
     # Power sensor
     power:
@@ -116,7 +124,8 @@ switch:
   # Switch to toggle the relay
   - platform: gpio
     id: relay
-    name: "${devicename} - Relay" 
+    icon: mdi:power
+    name: "${devicename} - Relay"
     pin: GPIO15
     on_turn_on:
       - light.turn_on: led
