@@ -23,8 +23,8 @@ api:
 ota:
 
 wifi:
-  ssid: "wHome"
-  password: "pegaz123"
+  ssid: "siec"
+  password: "haslo"
   fast_connect: on
   
   # Optional manual IP
@@ -116,7 +116,7 @@ switch:
   # Switch to toggle the relay
   - platform: gpio
     id: relay
-    name: relay
+    name: "${devicename} - Relay" 
     pin: GPIO15
     on_turn_on:
       - light.turn_on: led
@@ -128,7 +128,7 @@ output:
   - platform: esp8266_pwm
     id: state_led
     pin:
-      number: GPIO2
+      number: GPIO0
       inverted: true
 
 light:
@@ -140,4 +140,4 @@ light:
 # Uses the red LED as a ESPhome status indicator
 status_led:
   pin:
-    number: GPIO0
+    number: GPIO2
